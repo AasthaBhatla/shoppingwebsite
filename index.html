@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>thrifty</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;0,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="images/thrifty logo.jpg" width="125px" alt="logo of the website"></a> 
+                </div>
+                <nav>
+                    <ul id="menuitems">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </nav>
+                <a href="cart.html"><img src="images/cart.png" width=30px height=30px alt="cart"></a>
+                <span id="cartCount" style="color:red; font-weight:bold; margin-left:5px;">0</span>                
+                <img src="images/menu.png" class="menu-icon" alt="menu" onclick="toggleMenu()">
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <h1>Found treasures and little pleasures,<br> all wrapped up in thrifted measures.</h1>
+                    <p>Be a part of the solution not part of the pollution.</p>
+                    <a href="products.html" class="btn">Explore now</a>
+                </div>
+                <div class="col-2">
+                    <img src="images/store2.jpg" alt="a picture of a store">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- featured categories -->
+    <div class="categories">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-3">
+                    <img src="images/cat1.jpg" alt="Category 1">
+                </div>
+                <div class="col-3">
+                    <img src="images/cat2.jpg" alt="Category 2">
+                </div>
+                <div class="col-3">
+                    <img src="images/cat3.jpg" alt="Category 3">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- featured products -->
+    <div class="small-container">
+        <h2 class="title">Featured Products</h2>
+        <div class="small">
+            <div class="col-4">
+                <a href="product-detail.html"><img src="images/dress1.jpg" alt="Vintage golden dress"></a>
+                <h4>Vintage golden dress</h4>
+                <p>Rs.2000</p>
+            </div>
+            <div class="col-4">
+                <a href="pd2.html"><img src="images/shoes1.jpg" alt="Formal shoes"></a>
+                <h4>Formal shoes</h4>
+                <p>Rs.1500</p>
+            </div>
+            <div class="col-4">
+                <a href="pd3.html"><img src="images/shoes2.jpg" alt="Basic Sandal"></a>
+                <h4>Basic Sandal</h4>
+                <p>Rs.1000</p>
+            </div>
+            <div class="col-4">
+                <a href="pd4.html"><img src="images/shirt1.jpg" alt="Blue shirt"></a>
+                <h4>Blue shirt</h4>
+                <p>Rs.800</p>
+            </div>
+        </div>
+    </div>
+    <!-- offer -->
+    <div class="offer">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="images/watch.jpg" class="offer-img" alt="Vintage Watch">
+                </div>
+                <div class="col-2">
+                    <h1>Vintage Watch</h1>
+                    <p>A timeless masterpiece, this vintage watch embodies classic elegance and meticulous craftsmanship. 
+                    Its intricate design and rich history make it a cherished accessory for any collector.</p>
+                    <a href="pd13.html" class="btn">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+ <div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <img src="images/thrifty logo.jpg" alt="Thrifty Logo" style="width: 120px;">
+                <p>Affordable, sustainable shopping that promotes reuse, supports causes, and builds community through unique thrifted finds.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/">Facebook</a></li>
+                    <li><a href="https://x.com/">Twitter</a></li>
+                    <li><a href="https://www.instagram.com/">Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="copy">&copy; Copyright 2024</p>
+    </div>
+ </div>
+
+    <script>
+        // Optional: Toggle menu for mobile
+        const menuItems = document.getElementById("menuitems");
+        document.querySelector(".menu-icon").addEventListener("click", () => {
+            menuItems.classList.toggle("show");
+        });
+        const cartCountSpan = document.getElementById("cartCount");
+
+    function getCart() {
+        return JSON.parse(localStorage.getItem("cart")) || [];
+    }
+
+    function updateCartCount() {
+        const cart = getCart();
+        let totalItems = 0;
+        cart.forEach(item => totalItems += item.quantity);
+        cartCountSpan.textContent = totalItems;
+    }
+
+    updateCartCount();
+    </script>
+
+</body>
+</html>

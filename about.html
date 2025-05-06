@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us | Thrifty</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="images/thrifty logo.jpg" width="125px" alt="Thrifty Logo">
+                </div>
+                <nav>
+                    <ul id="menuitems">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </nav>
+                <a href="cart.html"><img src="images/cart.png" width="30px" height="30px" alt="cart"></a>
+                <span id="cartCount" style="color:red; font-weight:bold; margin-left:5px;">0</span>
+                <img src="images/menu.png" class="menu-icon" onclick="toggleMenu()" alt="menu">
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="small-container about-section">
+        <h1>About Thrifty</h1>
+        <p>
+            Thrifty was founded with a simple mission: to make fashion and lifestyle more affordable, sustainable, and accessible. 
+            We are a passionate team of thrift enthusiasts who believe in the value of reuse, upcycling, and giving new life to pre-loved items.
+        </p>
+        <h2>Our Values</h2>
+        <ul>
+            <li><strong>Affordability:</strong> Quality items at budget-friendly prices.</li>
+            <li><strong>Sustainability:</strong> Reducing waste by promoting second-hand shopping.</li>
+            <li><strong>Community:</strong> Supporting local causes and fostering a conscious shopping culture.</li>
+        </ul>
+        <h2>Why Choose Us?</h2>
+        <p>
+            Whether you're looking for a vintage gem, an everyday outfit, or formal wear at a steal, we’ve got something for everyone.
+            Every item is carefully curated, cleaned, and inspected to ensure you get nothing but the best.
+        </p>
+        <h2>Meet the Team</h2>
+        <p>
+            We're students, developers, creatives, and sustainability warriors working together to bring a modern thrift experience online.
+            Through Thrifty, we aim to create a platform that balances fashion with responsibility.
+        </p>
+        <img src="images/team.webp" alt="Our Team" width="100%" style="margin-top: 20px; border-radius: 12px;">
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <img src="images/thrifty logo.jpg" alt="Thrifty Logo" style="width: 120px;">
+                    <p>Affordable, sustainable shopping that promotes reuse, supports causes, and builds community through unique thrifted finds.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="https://www.facebook.com/">Facebook</a></li>
+                        <li><a href="https://x.com/">Twitter</a></li>
+                        <li><a href="https://www.instagram.com/">Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copy">&copy; Copyright 2024</p>
+        </div>
+    </div>
+    
+    <!-- Menu Toggle Script -->
+    <script>
+        function toggleMenu() {
+            const menuItems = document.getElementById("menuitems");
+            if (menuItems.style.maxHeight === "0px" || !menuItems.style.maxHeight) {
+                menuItems.style.maxHeight = "200px";
+            } else {
+                menuItems.style.maxHeight = "0px";
+            }
+        }
+    </script>
+    
+    
+
+    <!-- Cart Count Script -->
+    <script>
+        const cartCountSpan = document.getElementById("cartCount");
+
+        function getCart() {
+            return JSON.parse(localStorage.getItem("cart")) || [];
+        }
+
+        function updateCartCount() {
+            const cart = getCart();
+            let totalItems = 0;
+            cart.forEach(item => totalItems += item.quantity);
+            cartCountSpan.textContent = totalItems;
+        }
+
+        updateCartCount();
+    </script>
+</body>
+</html>
